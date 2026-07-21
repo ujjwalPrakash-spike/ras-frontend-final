@@ -500,8 +500,8 @@ function Index() {
         if (
           !cellValues.row.verified?.Valid ||
           role === 100 ||
-          role === 101 ||
-          role === 102
+          role === 101
+          //role === 102 TODO UNcomment this when SPO is allowed to accept resume
         ) {
           return (
             <Box
