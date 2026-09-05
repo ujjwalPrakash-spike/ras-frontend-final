@@ -12,7 +12,6 @@ import {
   FormControl,
   FormControlLabel,
   Grid,
-  IconButton,
   InputLabel,
   MenuItem,
   Modal,
@@ -180,7 +179,6 @@ function Resume() {
   const [resumeType, setResumeType] = useState<string>("SINGLE");
   const [resumeTag, setResumeTag] = useState<string>("");
 
-  const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
     setSuccess(false);
@@ -193,20 +191,20 @@ function Resume() {
     const { files } = event.target;
 
     const verifiedOrPendingResumes = allResumes.filter(
-      (resume) => !(resume.verified.Valid && !resume.verified.Bool),
+      (resume) => !(resume.verified.Valid && !resume.verified.Bool)
     );
     const singleResumes = verifiedOrPendingResumes.filter(
-      (resume) => resume.resume_type === "SINGLE",
+      (resume) => resume.resume_type === "SINGLE"
     );
 
     const masterResumes = verifiedOrPendingResumes.filter(
-      (resume) => resume.resume_type === "MASTER",
+      (resume) => resume.resume_type === "MASTER"
     );
 
     if (resumeType === "SINGLE" && singleResumes.length >= 5) {
       errorNotification(
         "You can only upload 5 Single resumes",
-        "Cannot upload",
+        "Cannot upload"
       );
       setLoading(false);
       return;
@@ -215,7 +213,7 @@ function Resume() {
     if (resumeType === "MASTER" && masterResumes.length >= 1) {
       errorNotification(
         "You can only upload one MASTER resume unless the existing one is rejected",
-        "Cannot upload",
+        "Cannot upload"
       );
       setLoading(false);
       return;
@@ -244,7 +242,7 @@ function Resume() {
     if (file.name !== resumeName) {
       errorNotification(
         "File must follow the name constraint",
-        `Expected File name: ${resumeName}`,
+        `Expected File name: ${resumeName}`
       );
       setLoading(false);
       return;
@@ -321,7 +319,7 @@ function Resume() {
   };
 
   const handleResumeTypeChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setResumeType(event.target.value);
   };
