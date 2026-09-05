@@ -12,7 +12,6 @@ import {
   FormControl,
   FormControlLabel,
   Grid,
-  IconButton,
   InputLabel,
   MenuItem,
   Modal,
@@ -180,7 +179,6 @@ function Resume() {
   const [resumeType, setResumeType] = useState<string>("SINGLE");
   const [resumeTag, setResumeTag] = useState<string>("");
 
-  const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
     setSuccess(false);
