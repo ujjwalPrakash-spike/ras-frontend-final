@@ -2,16 +2,14 @@
 import React, { useEffect, useState } from "react";
 import { GridColDef } from "@mui/x-data-grid";
 import {
-  Alert,
-  AlertTitle,
   Box,
   Button,
-  Chip,
   CircularProgress,
   Fab,
   FormControl,
   FormControlLabel,
   Grid,
+  IconButton,
   InputLabel,
   MenuItem,
   Modal,
@@ -22,8 +20,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import LockIcon from "@mui/icons-material/Lock";
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import AddIcon from "@mui/icons-material/Add";
 import { useRouter } from "next/router";
 import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
@@ -179,6 +176,7 @@ function Resume() {
   const [resumeType, setResumeType] = useState<string>("SINGLE");
   const [resumeTag, setResumeTag] = useState<string>("");
 
+  const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
     setSuccess(false);
@@ -338,33 +336,12 @@ function Resume() {
           </Grid>
           <Grid item xs={6} style={gridMain}>
             <div>
-              <Chip
-                icon={<LockIcon fontSize="small" />}
-                label="Uploads Closed"
-                color="error"
-                variant="outlined"
-                sx={{ fontWeight: 600, px: 1, py: 0.5, borderRadius: "8px" }}
-              />
+              <IconButton onClick={handleOpen}>
+                <AddIcon />
+              </IconButton>
             </div>
           </Grid>
         </Grid>
-        <Alert
-          severity="warning"
-          icon={<InfoOutlinedIcon />}
-          sx={{
-            my: 2,
-            borderRadius: "10px",
-            fontSize: "0.95rem",
-            fontWeight: 500,
-          }}
-        >
-          <AlertTitle sx={{ fontWeight: 700, mb: 0.5 }}>
-            Resume Submissions Are Currently Closed
-          </AlertTitle>
-          The portal is no longer accepting new resume uploads or modifications
-          for this recruitment cycle. For any urgent queries or assistance,
-          please contact the Placement Team / SPO.
-        </Alert>
         <div>
           <Typography>Instructions for submitting your resume:</Typography>
           <ol>
