@@ -30,7 +30,7 @@ Branches = [
     "PHY",
     "CGS",
     "DES",
-    "MS",
+    "MS(IME)",
     "MSP",
     "NET",
     "PSE",
@@ -56,7 +56,7 @@ SDS = "SDS"
 PHY = "PHY"
 CGS = "CGS"
 DES = "DES"
-MS = "MS"
+MS = "MS(IME)"
 MSP = "MSP"
 NET = "NET"
 PSE = "PSE"
